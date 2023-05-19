@@ -90,3 +90,5 @@ function download_txt(file_name, data) {
   a.remove();
   URL.revokeObjectURL(url);
 }
+
+  alert("既知のバグ" + \n + "・LocalStorageから文章を取得した際、文字数がリセットされない")
