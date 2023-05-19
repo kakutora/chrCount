@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="title">Character Count</h1>
+    <div class="inputArea">
+      <div class="inputArea__wrapper">
+        <textarea
+          placeholder="入力をしてください"
+          name=""
+          id="inputArea__box"
+          id=""
+        ></textarea>
+      </div>
+      <ul class="inputArea__info">
+        <li class="inputArea__btn inputArea__btn--copy">Copy</li>
+        <li class="inputArea__btn inputArea__btn--clear">Clear</li>
+        <li class="inputArea__btn inputArea__btn--save">Sav1</li>
+        <li class="inputArea__btn inputArea__btn--save">Sav2</li>
+        <li class="inputArea__btn inputArea__btn--save">Sav3</li>
+      </ul>
+      <ul class="inputArea__info">
+        <li class="inputArea__btn inputArea__btn--download">Download</li>
+        <li class="inputArea__btn inputArea__btn--clearS">
+          Session<br />Clear
+        </li>
+        <li class="inputArea__btn inputArea__btn--load">Load1</li>
+        <li class="inputArea__btn inputArea__btn--load">Load2</li>
+        <li class="inputArea__btn inputArea__btn--load">Load3</li>
+      </ul>
+    </div>
+
+    <ul class="input">
+      <li class="input__chrNum">
+        <p class="input__title">文字数</p>
+        <p class="input__info">0</p>
+      </li>
+      <li class="input__chrNumSpace">
+        <p class="input__title">文字数(空白含む)</p>
+        <p class="input__info">0</p>
+      </li>
+      <li class="input__rows">
+        <p class="input__title">行数</p>
+        <p class="input__info">0</p>
+      </li>
+      <li class="input__num">
+        <p class="input__title">原稿用紙枚数</p>
+        <p class="input__info">0</p>
+      </li>
+    </ul>
+    <script src="main.js"></script>
+  </body>
+</html>
