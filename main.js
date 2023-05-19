@@ -90,5 +90,19 @@ function download_txt(file_name, data) {
   a.remove();
   URL.revokeObjectURL(url);
 }
+import text from "./text.json" assert { type: "json" };
 
-  alert("既知のバグ\n・LocalStorageから文章を取得した際、文字数がリセットされない")
+const newsWrapper = document.querySelector(".news");
+const newsNone = document.querySelector(".news__text--none");
+console.log(Object.keys(text.newsList));
+
+if (Object.keys(text.newsList).length) {
+  newsNone.remove();
+  for (let i = 0; i < Object.values(text.newsList).length; i++) {
+    const createNews = document.createElement("p");
+    createNews.classList.add("news__text");
+    createNews.innerHTML =
+      Object.keys(text.newsList)[i] + " : " + Object.values(text.newsList)[i];
+    newsWrapper.appendChild(createNews);
+  }
+}
