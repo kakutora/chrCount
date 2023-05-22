@@ -1,4 +1,7 @@
-import text from "./text.json" assert { type: "json" };
+const bod = document.querySelector("body");
+bod.style.background = 'black';
+/*
+]import text from "./text.json" assert { type: "json" };
 const t = document.getElementById("inputArea__box");
 const inputInfo = document.querySelectorAll(".input__info");
 const inputBtnCopy = document.querySelector(".inputArea__btn--copy");
@@ -96,3 +99,4 @@ const download_txt = (file_name, data) => {
   a.remove();
   URL.revokeObjectURL(url);
 };
+*/
