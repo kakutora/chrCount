@@ -9,6 +9,7 @@ const inputBtnSave = document.querySelectorAll(".inputArea__btn--save");
 const inputBtnLoad = document.querySelectorAll(".inputArea__btn--load");
 const newsWrapper = document.querySelector(".news");
 const newsNone = document.querySelector(".news__text--none");
+
 /*
 if (Object.keys(text.newsList).length) {
   //jsonからニュース取得

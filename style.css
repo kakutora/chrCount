@@ -52,7 +52,7 @@ body {
 .inputArea {
   display: grid;
   grid-template-columns: min(60%, 600px) 195px;
-  grid-template-rows: clamp(400px, 45vh, 600px) auto;
+  grid-template-rows: clamp(300px, 45vh, 600px) auto;
   grid-column-gap: 25px;
   grid-row-gap: 35px;
   justify-content: center;
@@ -80,6 +80,7 @@ body {
   padding: 15px;
   color: #000000c0;
   font-size: 0.915rem;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.1rem;
   border: none;
@@ -168,6 +169,7 @@ body {
   #inputArea__box {
     height: 30vh;
     font-size: 0.85rem;
+    font-size: 16px;
     letter-spacing: initial;
   }
   .inputArea__infoBox {
