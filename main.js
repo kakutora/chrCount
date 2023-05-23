@@ -1,4 +1,4 @@
-import text from "./text.json" assert { type: "json" };
+//import text from "./text.json" assert { type: "json" };
 const t = document.getElementById("inputArea__box");
 const inputInfo = document.querySelectorAll(".input__info");
 const inputBtnCopy = document.querySelector(".inputArea__btn--copy");
@@ -9,7 +9,7 @@ const inputBtnSave = document.querySelectorAll(".inputArea__btn--save");
 const inputBtnLoad = document.querySelectorAll(".inputArea__btn--load");
 const newsWrapper = document.querySelector(".news");
 const newsNone = document.querySelector(".news__text--none");
-
+/*
 if (Object.keys(text.newsList).length) {
   //jsonからニュース取得
   newsNone.remove();
@@ -21,6 +21,7 @@ if (Object.keys(text.newsList).length) {
     newsWrapper.appendChild(createNews);
   }
 }
+*/
 
 t.addEventListener("input", () => {
   chrReset();
