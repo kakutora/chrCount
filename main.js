@@ -1,4 +1,3 @@
-//import text from "./text.json" assert { type: "json" };
 const t = document.getElementById("inputArea__box");
 const inputInfo = document.querySelectorAll(".input__info");
 const inputBtnCopy = document.querySelector(".inputArea__btn--copy");
@@ -9,6 +8,25 @@ const inputBtnSave = document.querySelectorAll(".inputArea__btn--save");
 const inputBtnLoad = document.querySelectorAll(".inputArea__btn--load");
 const newsWrapper = document.querySelector(".news");
 const newsNone = document.querySelector(".news__text--none");
+const newsJsonURL = "https://kakutora.github.io/chrCount/text.json";
+let body = document.querySelector("body");
+const tf = (val) => {
+  newsNone.remove();
+
+  for (let i = 0; i < Object.values(val.newsList).length; i++) {
+    const createNews = document.createElement("p");
+    createNews.classList.add("news__text");
+    createNews.innerHTML =
+      Object.keys(val.newsList)[i] + " : " + Object.values(val.newsList)[i];
+    newsWrapper.appendChild(createNews);
+  }
+};
+if (true) {
+  fetch(newsJsonURL)
+    .then((res) => res.json())
+    //.then((json) => console.log("a" /*Object.values(json.newsList)*/))
+    .then((json) => tf(json));
+}
 
 /*
 if (Object.keys(text.newsList).length) {
