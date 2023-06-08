@@ -1,36 +1,54 @@
-var express = require("express");
-const fs = require("fs");
-var app = express();
-var http = require("http").Server(app);
-const io = require("socket.io")(http);
-const PORT = process.env.PORT || 7000;
+const express = require("express");
+const path = require('path');
+const http = require("http");
+const socketIO = require("socket.io");
 
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server);
+
+// ドキュメントルートの設定
+
+app.use(express.static(path.join(__dirname, '/views')));
+
+/*
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/view/index.html");
+    res.sendFile(__dirname + "/views/index.html");
 });
-app.get("/img", (req, res) => {
-  fs.readFile("./rico.png", (err, data) => {
-    res.type("png");
-    res.send(data);
-  });
+*/
+
+app.use("/js", express.static(__dirname + "/js/"));
+app.use("/img", express.static(__dirname + "/img/"));
+
+app.use(
+    "/io",
+    express.static(__dirname + "/node_modules/socket.io/client-dist/")
+);
+
+server.listen(3000, () => {
+    console.log("Server started on port 3000");
 });
 
-http.listen(PORT, function () {
-  console.log("server listening. Port:" + PORT);
-});
+const fs = require('fs');
+const filePath = 'json/futsu_ga_ichiban.json';
 
-io.on("connection", function (socket) {
-  socket.on("obj", function (val) {
-    io.emit("obj", val);
-  });
-});
-io.on("connection", function (socket) {
-  socket.on("x", function (val1) {
-    io.emit("x", val1);
-  });
-});
-io.on("connection", function (socket) {
-  socket.on("y", function (val2) {
-    io.emit("y", val2);
-  });
+const players = {};
+
+fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+        console.error('ファイルの読み込みエラー:', err);
+        return;
+    }
+
+    // 読み込まれたデータをJSONとしてパースします
+    const jsonData = JSON.parse(data);
+
+    // ここでjsonDataを使って必要な処理を行います
+
+    io.on("connection", (socket) => {
+        socket.emit("mapData", jsonData);
+
+        const playerID = socket.id;
+        socket.emit("assignPlayerId", playerID);
+    });
 });
